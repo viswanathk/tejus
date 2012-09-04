@@ -14,8 +14,8 @@ import os
 # If you're trying it with something other than gmail
 # you should make the username the full email address
 # example@domain.com
-username = 'zoozoo243@gmail.com' 
-password = 'jewrdrygmggyiyjw' # your pw
+username = '' 
+password = '' # your pw
 mailbox = 'INBOX' # inbox is default
 
 # only tested with gmail and my university email
