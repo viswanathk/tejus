@@ -1,10 +1,10 @@
-# Author: Bhavik Shah
+# Author: Bhavishya Sharma
 # Created: 3/5/09
 # Description: Simple script that uses the python imap library
 # to retrieve number of messages and unread messages from your 
 # imap email account. 
 
-# Script is free. Credit to bhaviksblog.com is appreciated =)
+# Script is free. Credit to twitter.com/#!/futurefurore is appreciated =)
 
 import imaplib
 
