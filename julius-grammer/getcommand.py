@@ -50,7 +50,7 @@ def command(file_object):
 					os.system("xte 'keydown Super_L' 'key w' 'keyup Super_L'")
 					os.system("echo 'Displayed all windows'| festival --tts")
 				if(com == "CLOSE WINDOW"):
-					os.system("xte 'keydown Alt_L' 'key F4' 'keyup Alt_L'")
+					os.system("wmctrl -c :ACTIVE:")
 				if(com == "OPEN COMPUTER"):
 					os.system("gnome-screensaver-command -d")
 					os.system("echo 'Unlocked the computer' | festival --tts")
