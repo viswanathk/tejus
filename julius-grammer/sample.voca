@@ -1,0 +1,53 @@
+% NS_B
+<s>        sil
+
+% NS_E
+</s>        sil
+
+% ONE
+RESPOND	r ix s p aa n d
+
+% S1
+CHECK	ch eh k
+OPEN	ow p ax n
+STOP	s t aa p
+CLOSE	k l ow s
+TELL	t eh l
+RESUME	r ix z uw m 
+NEXT	n eh k s t
+PREVIOUS	p r iy v iy ax s
+ZERO	z ih r ow
+COMPLETE	k ax m p l iy t
+HALF	hh ae f
+FULLSCREEN	f ax l s k r iy n
+LOCK	l aa k
+
+% S2
+COMPUTER	k ax m p y uw dx er
+DESKTOP	d eh s k t aa p 
+EMAIL ix m ey l
+MOVIES	m uw v iy z
+DOWNLOADS	d aw n l ow d z
+SERIES	s ih r iy z
+TIME	t ay m
+LISTENING	l ih s ax n ix ng
+SHELL	sh eh l
+WINDOWS	w ih n d ow z
+WINDOW	w ih n d ow
+FOX	f aa k s
+VIDEO	v ih dx iy ow
+SONG	s ao ng
+BRIGHTNESS	b r ay t n ax s
+VOLUME	v aa l y uw m
+
+% TELL
+TELL	t eh l
+
+% WHOM
+ME	m iy
+
+% ABOUT
+ABOUT	ax b aw t
+
+
+
