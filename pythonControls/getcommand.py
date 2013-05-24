@@ -71,6 +71,9 @@ def command(speech_object):
 				if(com == "CHECK EMAIL"):
 					userin = Data(["python", "/home/viswanath/dla/julius-grammer/imap.py"])
 					userin.interact()
+
+
+
 				if(com == "COMPLETE BRIGHTNESS"):
 					userin = Data(["xbacklight", "-set", "100"],"Maximum brightness")
 					userin.interact()
