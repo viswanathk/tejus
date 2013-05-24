@@ -1,5 +1,6 @@
 0	[<s>]	sil
 1	[</s>]	sil
+<<<<<<< HEAD
 2	[RESPOND]	r ix s p aa n d
 3	[CHECK]	ch eh k
 3	[OPEN]	ow p ax n
@@ -33,3 +34,40 @@
 5	[TELL]	t eh l
 6	[ME]	m iy
 7	[ABOUT]	ax b aw t
+=======
+2	[CLEAN]	k l iy n
+2	[CHECK]	ch eh k
+2	[OPEN]	ow p ax n
+2	[CLOSE]	k l ow s
+2	[LOCK]	l aa k
+2	[TELL]	t eh l
+2	[STOP]	s t aa p
+2	[START]	s t aa r t
+2	[SHOW]	sh ow
+2	[RESUME]	r ix z uw m
+3	[COMPUTER]	k ax m p y uw dx er
+3	[DESKTOP]	d eh s k t aa p
+3	[EMAIL]	ix m ey l
+3	[MOVIES]	m uw v iy z
+3	[DOWNLOADS]	d aw n l ow d z
+3	[SERIES]	s ih r iy z
+3	[TIME]	t ay m
+3	[LISTENING]	l ih s ax n ix ng
+3	[SHELL]	sh eh l
+3	[WINDOWS]	w ih n d ow z
+3	[WINDOW]	w ih n d ow
+3	[FOX]	f aa k s
+3	[VIDEO]	v ih dx iy ow
+4	[PLAY]	p l ey
+4	[PAUSE]	p ao z
+4	[NEXT]	n eh k s t
+4	[PREVIOUS]	p r iy v iy ax s
+5	[SONG]	s ao ng
+6	[DECREASE]	d ix k r iy s
+6	[INCREASE]	ix n k r iy s
+6	[MUTE]	m y uw t
+6	[FULL]	f uh l
+7	[VOLUME]	v aa l y uw m
+8	[YOU]	y uw
+9	[RUNNING]	r ah n ix ng
+>>>>>>> 8b0c323509474292193218149f26aa8988d6bcf5
