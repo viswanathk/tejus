@@ -14,3 +14,6 @@
 8) Install xbacklight for brightness control from terminal
 9) Install zenity (for dialogs and such)
 10) Notify osd is shit. Installed xfce4-notifyd-config. Removed notify-osd which killed ubuntu-desktop with itself
+11) Installed Tornado for the webserver stuff. The commands are 
+	after unzipping the package, python setup.py build
+								sudo python setup.py install
