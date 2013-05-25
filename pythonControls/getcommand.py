@@ -1,15 +1,15 @@
 #!/usr/bin/python
 import sys
 import api
+import communicate
 from api import Data
 def command(speech_object):
-	listen = 1
 	while(True):
 		line = speech_object.readline()
 		if(line.startswith("sentence1: ")):
 			com = line[15:-6]
 			print com
-			if listen == 1:
+			if communicate.speechRecognition == 1:
 				if(com == "RESUME SONG" or com == "OPEN SONG"):
 					userin = Data(["rhythmbox-client","--play"],"Song playback resumed")
 					userin.interact()
@@ -25,7 +25,6 @@ def command(speech_object):
 					userin = Data(["rhythmbox-client","--previous"],"Playing previous song")
 					userin.interact()
 
-
 				if(com == "RESUME VIDEO"):
 					userin = Data(["totem","--play"],"Video play resumed")
 					userin.interact()
@@ -35,34 +34,14 @@ def command(speech_object):
 				if(com == "FULLSCREEN VIDEO"):
 					userin = Data(["totem","--fullscreen"],"Video made fullscreen")
 					userin.interact()
+
+
 				if(com == "COMPLETE VOLUME"):
 					userin = Data(["rhythmbox-client", "--set-volume", "1"],"Volume 100%")
 					userin.interact()
 				if(com == "ZERO VOLUME"):
 					userin = Data(["rhythmbox-client", "--set-volume", "0"],"Volume 0%")
 					userin.interact()
-
-
-
-
-				#if(com == "SHOW WINDOWS"):
-					#userin.command("xte 'keydown Super_L' 'key w' 'keyup Super_L'")
-					#userin.command("echo 'Displayed all windows'| festival --tts")
-				#if(com == "CLOSE WINDOW"):
-					#userin.command("wmctrl -c :ACTIVE:")
-
-
-				#if(com == "OPEN MOVIES"):
-					#userin.command = ["nautilus","/media/Data/Videos/Movies"]
-					#userin.message = "opening movies"
-
-				#if(com == "OPEN DOWNLOADS"):
-					#userin.command= ["nautilus","/home/viswanath/Downloads"]
-
-				#if(com == "OPEN SERIES"):
-					#userin.command = ["nautilus", "/media/Data/Series"]
-
-
 
 
 				if(com == "OPEN FOX"):
@@ -95,16 +74,22 @@ def command(speech_object):
 
 			if(com == "RESPOND"):
 				currentstate = "Listening"
-				if listen == 0:
+				if communicate.speechRecognition == 0:
 					currentstate = "Not listening"
 				userin = Data("",currentstate,True)
 				userin.interact()
 			if(com == "STOP LISTENING"):
 				userin = Data("","Paused listening", True)
 				userin.interact()
-				listen = 0
+				communicate.speechRecognition = 0
 			if(com == "RESUME LISTENING"):
 				userin = Data("","Started listening", True)
 				userin.interact()
-				listen = 1
-command(sys.stdin)
+				communicate.speechRecognition = 1
+			print communicate.speechRecognition
+
+if __name__ == '__main__':
+	try:
+		command(sys.stdin)
+	except KeyboardInterrupt:
+		sys.exit(1)

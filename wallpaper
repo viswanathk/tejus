@@ -1,1 +1,0 @@
-gconftool-2 -t str -s /desktop/gnome/background/picture_filename /home/USER_NAME/Desktop/FILE

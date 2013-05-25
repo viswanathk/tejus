@@ -23,13 +23,7 @@ FULLSCREEN	f ax l s k r iy n
 LOCK	l aa k
 
 % S2
-CLEAN	k l iy n 
-CHECK	ch eh k
-OPEN	ow p ax n
-CLOSE	k l ow s
-LOCK	l aa k
-TELL	t eh l
-STOP	s t aa p
-START 	s t aa r t
-SHOW	sh ow
-RESUME	r ix z uw m 
+SONG	s ao ng
+VIDEO	v ih dx iy ow
+BRIGHTNESS	b r ay t n ax s
+VOLUME	v aa l y uw m

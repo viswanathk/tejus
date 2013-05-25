@@ -14,13 +14,7 @@
 3	[HALF]	hh ae f
 3	[FULLSCREEN]	f ax l s k r iy n
 3	[LOCK]	l aa k
-4	[CLEAN]	k l iy n
-4	[CHECK]	ch eh k
-4	[OPEN]	ow p ax n
-4	[CLOSE]	k l ow s
-4	[LOCK]	l aa k
-4	[TELL]	t eh l
-4	[STOP]	s t aa p
-4	[START]	s t aa r t
-4	[SHOW]	sh ow
-4	[RESUME]	r ix z uw m
+4	[SONG]	s ao ng
+4	[VIDEO]	v ih dx iy ow
+4	[BRIGHTNESS]	b r ay t n ax s
+4	[VOLUME]	v aa l y uw m
