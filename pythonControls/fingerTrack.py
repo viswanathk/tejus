@@ -8,12 +8,12 @@ color_tracker_window = "Color Tracker"
  
 class ColorTracker: 
 	def __init__(self): 
-		cv.NamedWindow( color_tracker_window, 1 ) 
+		#cv.NamedWindow( color_tracker_window, 1 ) 
 		self.capture = cv.CaptureFromCAM(0) 
         
 	def run(self): 
 		lastx = lasty = -1
-		left = right = 0
+		fwd = 0
 		while True: 
 			img = cv.QueryFrame( self.capture ) 
 			cv.Smooth(img, img, cv.CV_BLUR, 3); 
@@ -34,11 +34,25 @@ class ColorTracker:
 				y = int(round(cv.GetSpatialMoment(moments, 0, 1)/area ))
 				if(lastx == -1):
 					lastx = x
-					lasty = y
+				pl = subprocess.Popen(["ps","-A"], stdout=subprocess.PIPE,close_fds=True)
+				#os.system("ps -A > .pl")
+				#pl = open(".pl","r").read()
+				out = pl.communicate()
+				pl.wait()
+				os.system("free")
 				if( x - lastx < 0):
-					os.system("totem --seek-fwd")
+					fwd = fwd + 1
+					if fwd >= 3:
+						for line in out:
+							if line and "totem" in line:
+								os.system("totem --seek-fwd")
+								break
+						fwd = 0
 				elif(x - lastx > 0):
-					os.system("totem --seek-bwd")
+					for line in out:
+						if line and "totem" in line:
+							os.system("totem --seek-bwd")
+							break
 				lastx = x
 				overlay = cv.CreateImage(cv.GetSize(img), 8, 3) 
 				cv.Circle(overlay, (x, y), 2, (255, 255, 255), 20) 
@@ -46,7 +60,7 @@ class ColorTracker:
 				cv.Merge(thresholded_img, None, None, None, img) 
 			if cv.WaitKey(10) == 27: 
 				break 
-			cv.ShowImage(color_tracker_window, img) 
+			#cv.ShowImage(color_tracker_window, img) 
                 
 if __name__=="__main__": 
     color_tracker = ColorTracker() 

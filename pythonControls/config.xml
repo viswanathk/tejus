@@ -1,0 +1,8 @@
+<speech>
+	<status>on</status>
+	<brightnessControl>on</brightnessControl>
+	<systemControl>on</systemControl>
+	<songControl>on</songControl>
+	<videoControl>on</videoControl>
+	<internetControl>off</internetControl>
+</speech>

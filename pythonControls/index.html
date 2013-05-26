@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Somename that we have still think about</title>
+    <title>Tejus Command Center</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Loading Bootstrap -->
@@ -17,38 +17,103 @@
       <script src="web/js/html5shiv.js"></script>
     <![endif]-->
 	<script>
-		function music(){
+		function speech(){
 			if(document.getElementById("speech1").checked)
 				$.get("/speechRecognition?value=on");
 			else
 				$.get("/speechRecognition?value=off");
 		}
+		function music(){
+			if(document.getElementById("songControl1").checked)
+				$.get("/songControl?value=on");
+			else
+				$.get("/songControl?value=off");
+		}
+		function video(){
+			if(document.getElementById("videoControl1").checked)
+				$.get("/videoControl?value=on");
+			else
+				$.get("/videoControl?value=off");
+		}
+		function internet(){
+			if(document.getElementById("internetControl1").checked)
+				$.get("/internetControl?value=on");
+			else
+				$.get("/internetControl?value=off");
+		}
+		function brightness(){
+			if(document.getElementById("brightnessControl1").checked)
+				$.get("/brightnessControl?value=on");
+			else
+				$.get("/brightnessControl?value=off");
+		}
+		function system(){
+			if(document.getElementById("systemControl1").checked)
+				$.get("/systemControl?value=on");
+			else
+				$.get("/systemControl?value=off");
+		}
 	</script>
   </head>
   <body>
     <div class="container">
-    	<h1 align="center">Some name we have to think about</h1>
+		<br/>
+		<br/>
+    	<h1 align="center">Tejus Command Center</h1>
     	<br/>
     	<br/>
     	<br/>
-    	<br/>
+		<div class="row">
+		<div class="span8 offset2">
+			<div class="pull-left">
 				<h3 class="demo-class-panel"> Speech Recognition </h3>
 				<div class="toggle">
         			<label class="toggle-radio" for="speech2">ON</label>
-                	<input type="radio" name="speechOptions" id="speech1" value="option1" checked="checked" onclick="music()">
+                	<input type="radio" name="speechOptions" id="speech1" value="option1" checked="checked" onclick="speech()">
                 	<label class="toggle-radio" for="speech1">OFF</label>
-                	<input type="radio" name="speechOptions" id="speech2" value="option2" onclick="music()">
+                	<input type="radio" name="speechOptions" id="speech2" value="option2" onclick="speech()">
         	    </div>
 				<br/>
-				<h3 class="demo-class-panel"> Speech Recognition </h3>
+				<h3 class="demo-class-panel"> Song Control</h3>
 				<div class="toggle">
-        			<label class="toggle-radio" for="toggleOption3">ON</label>
-                	<input type="radio" name="toggleOptions" id="toggleOption4" value="option1" checked="checked">
-                	<label class="toggle-radio" for="toggleOption4">OFF</label>
-                	<input type="radio" name="toggleOptions" id="toggleOption3" value="option2">
+        			<label class="toggle-radio" for="songControl2">ON</label>
+                	<input type="radio" name="songOptions" id="songControl1" value="option1" checked="checked" onclick="music()">
+                	<label class="toggle-radio" for="songControl1">OFF</label>
+                	<input type="radio" name="songOptions" id="songControl2" value="option2" onclick="music()">
         	    </div>
-        	</tr>
-        </table>
+				<h3 class="demo-class-panel"> Video Control</h3>
+				<div class="toggle">
+        			<label class="toggle-radio" for="videoControl2">ON</label>
+                	<input type="radio" name="videoOptions" id="videoControl1" value="option1" checked="checked" onclick="video()">
+                	<label class="toggle-radio" for="videoControl1">OFF</label>
+                	<input type="radio" name="videoOptions" id="videoControl2" value="option2" onclick="video()">
+        	    </div>
+				<h3 class="demo-class-panel"> Internet Control</h3>
+				<div class="toggle">
+        			<label class="toggle-radio" for="internetControl2">ON</label>
+                	<input type="radio" name="internetOptions" id="internetControl1" value="option1" checked="checked" onclick="internet()">
+                	<label class="toggle-radio" for="internetControl1">OFF</label>
+                	<input type="radio" name="internetOptions" id="internetControl2" value="option2" onclick="internet()">
+        	    </div>
+				<h3 class="demo-class-panel"> Brightness Control</h3>
+				<div class="toggle">
+        			<label class="toggle-radio" for="brightnessControl2">ON</label>
+                	<input type="radio" name="brightnessOptions" id="brightnessControl1" value="option1" checked="checked" onclick="brightness()">
+                	<label class="toggle-radio" for="brightnessControl1">OFF</label>
+                	<input type="radio" name="brightnessOptions" id="brightnessControl2" value="option2" onclick="brightness()">
+        	    </div>
+			</div>
+			<div class="pull-right">
+				<h3 class="demo-class-panel">System Control</h3>
+				<div class="toggle">
+        			<label class="toggle-radio" for="systemControl2">ON</label>
+                	<input type="radio" name="systemOptions" id="systemControl1" value="option1" checked="checked" onclick="system()">
+                	<label class="toggle-radio" for="systemControl1">OFF</label>
+                	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
+        	    </div>
+			</div>
+		</div>
+		</div>
     </div> <!-- /container -->
 
     <!-- Load JS here for greater good =============================-->
@@ -62,6 +127,27 @@
     <script src="web/js/jquery.placeholder.js"></script>
     <!--<script src="http://vjs.zencdn.net/c/video.js"></script>-->
     <script src="web/js/application.js"></script>
+	<script>
+		$(document).ready(function(){
+			$.get("/onLoad",function(data){
+				var brightness = $(data).find("brightnessControl").text();
+				var system = $(data).find("systemControl").text();
+				var song = $(data).find("songControl").text();
+				var video = $(data).find("videoControl").text();
+				var internet = $(data).find("internetControl").text();
+				if(song == "on")
+				{
+					$("#songControl1").checked = true;
+					$("#songControl2").checked = false;
+				}
+				else
+				{
+					$("#songControl1").checked = false;
+					$("#songControl2").checked = true;
+				}
+			});
+		});
+	</script>
     <!--[if lt IE 8]>
       <script src="web/js/icon-font-ie7.js"></script>
       <script src="web/js/icon-font-ie7-24.js"></script>
