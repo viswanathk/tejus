@@ -57,9 +57,6 @@ def command(speech_object):
 					if(com == "STOP VIDEO"):
 						userin = Data(["totem","--pause"],"Video play stopped")
 						userin.interact()
-					if(com == "FULLSCREEN VIDEO"):
-						userin = Data(["totem","--fullscreen"],"Video made fullscreen")
-						userin.interact()
 
 
 

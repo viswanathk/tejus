@@ -8,8 +8,7 @@ class Data:
 		self.speak = sp
 	def interact(self):
 		if self.command != "":
-			co = subprocess.Popen(self.command,stdout=subprocess.PIPE)
-			co.wait()
+			subprocess.Popen(self.command,stdout=subprocess.PIPE)
 		if self.speak == True:
 			self.say(self.message)
 		else:

@@ -105,6 +105,116 @@ class InternetControl(tornado.web.RequestHandler):
 		a.write(etree.tostring(tree))
 		#print etree.tostring(tree)
 		a.close()
+class IntelVideoPause(tornado.web.RequestHandler):
+	def get(self):
+		value = self.get_argument("value",True)
+		if value == "on":
+			value = "on"
+			for element in tree.iter():
+				if element.tag == "IntelVideoPause":
+					element.text = value
+				if element.tag == "IntelVideoControl":
+					element.text = "off"
+				if element.tag == "IntelBrightnessControl":
+					element.text = "off"
+				if element.tag == "IntelSystemLock":
+					element.text = "off"
+			a = open("config.xml","w")
+			a.write(etree.tostring(tree))
+			#print etree.tostring(tree)
+			a.close()
+		else:
+			value = "off"
+			for element in tree.iter():
+				if element.tag == "IntelVideoPause":
+					element.text = value
+			a = open("config.xml","w")
+			a.write(etree.tostring(tree))
+			#print etree.tostring(tree)
+			a.close()
+class IntelVideoControl(tornado.web.RequestHandler):
+	def get(self):
+		value = self.get_argument("value",True)
+		if value == "on":
+			value = "on"
+			for element in tree.iter():
+				if element.tag == "IntelVideoControl":
+					element.text = value
+				if element.tag == "IntelVideoPause":
+					element.text = "off"
+				if element.tag == "IntelBrightnessControl":
+					element.text = "off"
+				if element.tag == "IntelSystemLock":
+					element.text = "off"
+			a = open("config.xml","w")
+			a.write(etree.tostring(tree))
+			#print etree.tostring(tree)
+			a.close()
+		else:
+			value = "off"
+			#print value
+			for element in tree.iter():
+				if element.tag == "IntelVideoControl":
+					element.text = value
+			a = open("config.xml","w")
+			a.write(etree.tostring(tree))
+			#print etree.tostring(tree)
+			a.close()
+class IntelBrightnessControl(tornado.web.RequestHandler):
+	def get(self):
+		value = self.get_argument("value",True)
+		if value == "on":
+			value = "on"
+			for element in tree.iter():
+				if element.tag == "IntelBrightnessControl":
+					element.text = value
+				if element.tag == "IntelVideoControl":
+					element.text = "off"
+				if element.tag == "IntelVideoPause":
+					element.text = "off"
+				if element.tag == "IntelSystemLock":
+					element.text = "off"
+			a = open("config.xml","w")
+			a.write(etree.tostring(tree))
+			#print etree.tostring(tree)
+			a.close()
+		else:
+			value = "off"
+			#print value
+			for element in tree.iter():
+				if element.tag == "IntelBrightnessControl":
+					element.text = value
+			a = open("config.xml","w")
+			a.write(etree.tostring(tree))
+			#print etree.tostring(tree)
+			a.close()
+class IntelSystemLock(tornado.web.RequestHandler):
+	def get(self):
+		value = self.get_argument("value",True)
+		if value == "on":
+			value = "on"
+			for element in tree.iter():
+				if element.tag == "IntelSystemLock":
+					element.text = value
+				if element.tag == "IntelVideoControl":
+					element.text = "off"
+				if element.tag == "IntelBrightnessControl":
+					element.text = "off"
+				if element.tag == "IntelVideoPause":
+					element.text = "off"
+			a = open("config.xml","w")
+			a.write(etree.tostring(tree))
+			#print etree.tostring(tree)
+			a.close()
+		else:
+			value = "off"
+			for element in tree.iter():
+				if element.tag == "IntelSystemLock":
+					element.text = value
+			a = open("config.xml","w")
+			a.write(etree.tostring(tree))
+			#print etree.tostring(tree)
+			a.close()
 			
 
 application = tornado.web.Application([(r"/", MainHandler),
@@ -114,6 +224,10 @@ application = tornado.web.Application([(r"/", MainHandler),
 										(r"/internetControl", InternetControl),
 										(r"/brightnessControl", BrightnessControl),
 										(r"/systemControl", SystemControl),
+										(r"/IntelVideoPause", IntelVideoPause),
+										(r"/IntelVideoControl", IntelVideoControl),
+										(r"/IntelBrightnessControl", IntelBrightnessControl),
+										(r"/IntelSystemLock", IntelSystemLock),
 										(r"/onLoad", onLoad),
 										(r"/web/(.*)", tornado.web.StaticFileHandler, {"path":"web"}),
 										])

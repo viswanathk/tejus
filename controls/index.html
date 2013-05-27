@@ -53,13 +53,49 @@
 			else
 				$.get("/systemControl?value=off");
 		}
+		function videopause(){
+			if(document.getElementById("IntelVideoPause1").checked)
+				$.get("/IntelVideoPause?value=on");
+			else
+				$.get("/IntelVideoPause?value=off");
+			$("#IntelVideoControl1").parent().addClass("toggle-off");
+			$("#IntelBrightnessControl1").parent().addClass("toggle-off");
+			$("#IntelSystemLock1").parent().addClass("toggle-off");
+		}
+		function videocontrol(){
+			if(document.getElementById("IntelVideoControl1").checked)
+				$.get("/IntelVideoControl?value=on");
+			else
+				$.get("/IntelVideoControl?value=off");
+			$("#IntelVideoPause1").parent().addClass("toggle-off");
+			$("#IntelBrightnessControl1").parent().addClass("toggle-off");
+			$("#IntelSystemLock1").parent().addClass("toggle-off");
+		}
+		function brightnesscontrol(){
+			if(document.getElementById("IntelBrightnessControl1").checked)
+				$.get("/IntelBrightnessControl?value=on");
+			else
+				$.get("/IntelBrightnessControl?value=off");
+			$("#IntelVideoControl1").parent().addClass("toggle-off");
+			$("#IntelVideoPause1").parent().addClass("toggle-off");
+			$("#IntelSystemLock1").parent().addClass("toggle-off");
+		}
+		function systemlock(){
+			if(document.getElementById("IntelSystemLock1").checked)
+				$.get("/IntelSystemLock?value=on");
+			else
+				$.get("/IntelSystemLock?value=off");
+			$("#IntelVideoControl1").parent().addClass("toggle-off");
+			$("#IntelBrightnessControl1").parent().addClass("toggle-off");
+			$("#IntelVideoPause1").parent().addClass("toggle-off");
+		}
 	</script>
   </head>
   <body>
     <div class="container">
 		<br/>
 		<br/>
-    	<h1 align="center">Tejas Command Center</h1>
+    	<h1 align="center">Command Center</h1>
     	<br/>
     	<br/>
     	<br/>
@@ -113,31 +149,31 @@
         	    </div>
 				<h3 class="demo-class-panel">Intelligent Video Pause</h3>
 				<div class="toggle">
-        			<label class="toggle-radio" for="systemControl2">ON</label>
-                	<input type="radio" name="systemOptions" id="systemControl1" value="option1" checked="checked" onclick="system()">
-                	<label class="toggle-radio" for="systemControl1">OFF</label>
-                	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
+        			<label class="toggle-radio" for="IntelVideoPause2">ON</label>
+                	<input type="radio" name="videopauseoptions" id="IntelVideoPause1" value="option1" checked="checked" onclick="videopause()">
+                	<label class="toggle-radio" for="IntelVideoPause1">OFF</label>
+                	<input type="radio" name="videopauseoptions" id="IntelVideoPause2" value="option2" onclick="videopause()">
         	    </div>
 				<h3 class="demo-class-panel">Intelligent Video Control</h3>
 				<div class="toggle">
-        			<label class="toggle-radio" for="systemControl2">ON</label>
-                	<input type="radio" name="systemOptions" id="systemControl1" value="option1" checked="checked" onclick="system()">
-                	<label class="toggle-radio" for="systemControl1">OFF</label>
-                	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
+        			<label class="toggle-radio" for="IntelVideoControl2">ON</label>
+                	<input type="radio" name="videocontroloptions" id="IntelVideoControl1" value="option1" checked="checked" onclick="videocontrol()">
+                	<label class="toggle-radio" for="IntelVideoControl1">OFF</label>
+                	<input type="radio" name="videocontroloptions" id="IntelVideoControl2" value="option2" onclick="videocontrol()">
         	    </div>
 				<h3 class="demo-class-panel">Intelligent Brightness Control</h3>
 				<div class="toggle">
-        			<label class="toggle-radio" for="systemControl2">ON</label>
-                	<input type="radio" name="systemOptions" id="systemControl1" value="option1" checked="checked" onclick="system()">
-                	<label class="toggle-radio" for="systemControl1">OFF</label>
-                	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
+        			<label class="toggle-radio" for="IntelBrightnessControl2">ON</label>
+                	<input type="radio" name="brightnesscontroloptions" id="IntelBrightnessControl1" value="option1" checked="checked" onclick="brightnesscontrol()">
+                	<label class="toggle-radio" for="IntelBrightnessControl1">OFF</label>
+                	<input type="radio" name="brightnesscontroloptions" id="IntelBrightnessControl2" value="option2" onclick="brightnesscontrol()">
         	    </div>
 				<h3 class="demo-class-panel">Intelligent System Lock</h3>
 				<div class="toggle">
-        			<label class="toggle-radio" for="systemControl2">ON</label>
-                	<input type="radio" name="systemOptions" id="systemControl1" value="option1" checked="checked" onclick="system()">
-                	<label class="toggle-radio" for="systemControl1">OFF</label>
-                	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
+        			<label class="toggle-radio" for="IntelSystemLock2">ON</label>
+                	<input type="radio" name="systemlockoptions" id="IntelSystemLock1" value="option1" checked="checked" onclick="systemlock()">
+                	<label class="toggle-radio" for="IntelSystemLock1">OFF</label>
+                	<input type="radio" name="systemlockoptions" id="IntelSystemLock2" value="option2" onclick="systemlock()">
         	    </div>
 			</div>
 		</div>
@@ -164,6 +200,10 @@
 				var song = $(data).find("songControl").text();
 				var video = $(data).find("videoControl").text();
 				var internet = $(data).find("internetControl").text();
+				var videopause = $(data).find("IntelVideoPause").text();
+				var videocontrol = $(data).find("IntelVideoControl").text();
+				var brightnesscontrol = $(data).find("IntelBrightnessControl").text();
+				var systemlock = $(data).find("IntelSystemLock").text();
 				if(song != "on")
 				{
 					$("#songControl2").parent().addClass("toggle-off");
@@ -187,6 +227,22 @@
 				if(speech != "on")
 				{
 					$("#speech2").parent().addClass("toggle-off");
+				}
+				if(videopause != "on")
+				{
+					$("#IntelVideoPause2").parent().addClass("toggle-off");
+				}
+				if(videocontrol != "on")
+				{
+					$("#IntelVideoControl2").parent().addClass("toggle-off");
+				}
+				if(brightnesscontrol != "on")
+				{
+					$("#IntelBrightnessControl2").parent().addClass("toggle-off");
+				}
+				if(systemlock != "on")
+				{
+					$("#IntelSystemLock2").parent().addClass("toggle-off");
 				}
 			});
 		});
