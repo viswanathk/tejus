@@ -4,5 +4,5 @@
 	<systemControl>on</systemControl>
 	<songControl>on</songControl>
 	<videoControl>on</videoControl>
-	<internetControl>off</internetControl>
+	<internetControl>on</internetControl>
 </speech>

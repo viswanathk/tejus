@@ -21,3 +21,4 @@
 13) Installed python-opencv
 14) Installed python-numpy
 15) Install lxml
+16) Install python-dev

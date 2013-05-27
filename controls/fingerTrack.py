@@ -35,11 +35,8 @@ class ColorTracker:
 				if(lastx == -1):
 					lastx = x
 				pl = subprocess.Popen(["ps","-A"], stdout=subprocess.PIPE,close_fds=True)
-				#os.system("ps -A > .pl")
-				#pl = open(".pl","r").read()
 				out = pl.communicate()
 				pl.wait()
-				os.system("free")
 				if( x - lastx < 0):
 					fwd = fwd + 1
 					if fwd >= 3:

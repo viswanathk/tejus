@@ -59,12 +59,12 @@
     <div class="container">
 		<br/>
 		<br/>
-    	<h1 align="center">Tejus Command Center</h1>
+    	<h1 align="center">Tejas Command Center</h1>
     	<br/>
     	<br/>
     	<br/>
 		<div class="row">
-		<div class="span8 offset2">
+		<div class="span8 offset3">
 			<div class="pull-left">
 				<h3 class="demo-class-panel"> Speech Recognition </h3>
 				<div class="toggle">
@@ -111,6 +111,34 @@
                 	<label class="toggle-radio" for="systemControl1">OFF</label>
                 	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
         	    </div>
+				<h3 class="demo-class-panel">Intelligent Video Pause</h3>
+				<div class="toggle">
+        			<label class="toggle-radio" for="systemControl2">ON</label>
+                	<input type="radio" name="systemOptions" id="systemControl1" value="option1" checked="checked" onclick="system()">
+                	<label class="toggle-radio" for="systemControl1">OFF</label>
+                	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
+        	    </div>
+				<h3 class="demo-class-panel">Intelligent Video Control</h3>
+				<div class="toggle">
+        			<label class="toggle-radio" for="systemControl2">ON</label>
+                	<input type="radio" name="systemOptions" id="systemControl1" value="option1" checked="checked" onclick="system()">
+                	<label class="toggle-radio" for="systemControl1">OFF</label>
+                	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
+        	    </div>
+				<h3 class="demo-class-panel">Intelligent Brightness Control</h3>
+				<div class="toggle">
+        			<label class="toggle-radio" for="systemControl2">ON</label>
+                	<input type="radio" name="systemOptions" id="systemControl1" value="option1" checked="checked" onclick="system()">
+                	<label class="toggle-radio" for="systemControl1">OFF</label>
+                	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
+        	    </div>
+				<h3 class="demo-class-panel">Intelligent System Lock</h3>
+				<div class="toggle">
+        			<label class="toggle-radio" for="systemControl2">ON</label>
+                	<input type="radio" name="systemOptions" id="systemControl1" value="option1" checked="checked" onclick="system()">
+                	<label class="toggle-radio" for="systemControl1">OFF</label>
+                	<input type="radio" name="systemOptions" id="systemControl2" value="option2" onclick="system()">
+        	    </div>
 			</div>
 		</div>
 		</div>
@@ -131,19 +159,34 @@
 		$(document).ready(function(){
 			$.get("/onLoad",function(data){
 				var brightness = $(data).find("brightnessControl").text();
+				var speech = $(data).find("status").text();
 				var system = $(data).find("systemControl").text();
 				var song = $(data).find("songControl").text();
 				var video = $(data).find("videoControl").text();
 				var internet = $(data).find("internetControl").text();
-				if(song == "on")
+				if(song != "on")
 				{
-					$("#songControl1").checked = true;
-					$("#songControl2").checked = false;
+					$("#songControl2").parent().addClass("toggle-off");
 				}
-				else
+				if(brightness != "on")
 				{
-					$("#songControl1").checked = false;
-					$("#songControl2").checked = true;
+					$("#brightnessControl2").parent().addClass("toggle-off");
+				}
+				if(system != "on")
+				{
+					$("#systemControl2").parent().addClass("toggle-off");
+				}
+				if(video != "on")
+				{
+					$("#videoControl2").parent().addClass("toggle-off");
+				}
+				if(internet != "on")
+				{
+					$("#internetControl2").parent().addClass("toggle-off");
+				}
+				if(speech != "on")
+				{
+					$("#speech2").parent().addClass("toggle-off");
 				}
 			});
 		});
