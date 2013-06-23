@@ -4,7 +4,7 @@ from lxml import etree
 flag = 1
 videopause = videocontrol = brightness = systemlock = speechability = systemlock = 0
 while True:
-	os.system("sleep 2")
+	os.system("sleep 3")
 	tree = etree.parse("config.xml")
 	for element in tree.iter():
 		if element.tag == "status":
@@ -17,6 +17,7 @@ while True:
 			xmlbrightness = element.text
 		elif element.tag == "IntelSystemLock":
 			xmlsystemlock = element.text
+	print xmlvideopause
 	if xmlspeech == "on" and speechability == 0:
 		commandcentral = api.Data(["./startSpeechRecognition"],"Started speech recognition",True)
 		commandcentral.interact()
@@ -29,6 +30,7 @@ while True:
 		os.system("killall -9 IntelBrightnessControl")
 		os.system("killall -9 IntelSystemLock")
 		commandcentral = api.Data(["./IntelVideoPause"],"intelligent video pause, started",True)
+		print commandcentral
 		commandcentral.interact()
 		videopause = 1
 	elif xmlvideopause == "off" and videopause == 1:
@@ -57,10 +59,10 @@ while True:
 	if xmlsystemlock == "on" and systemlock == 0:
 		os.system("killall -9 IntelVideoPause")
 		os.system("killall -9 IntelVideoControl")
-		os.system("killall -9 IntelSystemLock")
-		commandcentral = api.Data(["./IntelBrightnessControl"],"intelligent brightness control, started",True)
+		os.system("killall -9 IntelBrightnessControl")
+		commandcentral = api.Data(["./IntelSystemLock"],"intelligent system lock, started",True)
 		commandcentral.interact()
 		systemlock = 1
-	elif xmlbrightness == "off" and systemlock == 1:
-		os.system("killall -9 IntelBrightnessControl")
+	elif xmlsystemlock == "off" and systemlock == 1:
+		os.system("killall -9 IntelSystemLock")
 		systemlock = 0

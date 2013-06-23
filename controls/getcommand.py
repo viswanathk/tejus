@@ -5,7 +5,6 @@ from lxml import etree
 from api import Data
 
 
-
 def command(speech_object):
 	while(True):
 		tree = etree.parse("config.xml")
@@ -65,7 +64,7 @@ def command(speech_object):
 						userin = Data(["firefox"],"Opening firefox")
 						userin.interact()
 					if(com == "CHECK EMAIL"):
-						userin = Data(["python", "/home/viswanath/dla/julius-grammer/imap.py"])
+						userin = Data(["python", "imap.py"])
 						userin.interact()
 
 
@@ -74,10 +73,10 @@ def command(speech_object):
 						userin = Data(["xbacklight", "-set", "100"],"Maximum brightness")
 						userin.interact()
 					if(com == "HALF BRIGHTNESS"):
-						userin = Data(["/usr/bin/xbacklight", "-set", "50"],"Partial brightness")
+						userin = Data(["xbacklight", "-set", "50"],"Partial brightness")
 						userin.interact()
 					if(com == "ZERO BRIGHTNESS"):
-						userin = Data(["/usr/bin/xbacklight","-set", "0"],"Minimal brightness")
+						userin = Data(["xbacklight","-set", "0"],"Minimal brightness")
 						userin.interact()
 
 
@@ -85,8 +84,8 @@ def command(speech_object):
 					if(com == "LOCK COMPUTER"):
 						userin = Data(["gnome-screensaver-command","-l"],"Computer Locked",True)
 						userin.interact()
-					if(com == "TELL ME ABOUT"):
-						userin = Data(["notify-send", "'Working progress'"],"Starting web service")
+					if(com == "OPEN COMMAND CENTER"):
+						userin = Data(["firefox","http://localhost:8888"],"Starting web service")
 						userin.interact()
 
 			if(com == "RESPOND"):

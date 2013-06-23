@@ -1,12 +1,12 @@
 <speech>
 	<status>on</status>
-	<brightnessControl>off</brightnessControl>
+	<brightnessControl>on</brightnessControl>
 	<systemControl>on</systemControl>
-	<songControl>off</songControl>
-	<videoControl>off</videoControl>
+	<songControl>on</songControl>
+	<videoControl>on</videoControl>
 	<internetControl>on</internetControl>
 	<IntelVideoPause>off</IntelVideoPause>
 	<IntelVideoControl>off</IntelVideoControl>
-	<IntelBrightnessControl>off</IntelBrightnessControl>
+	<IntelBrightnessControl>on</IntelBrightnessControl>
 	<IntelSystemLock>off</IntelSystemLock>
 </speech>
