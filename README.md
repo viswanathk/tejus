@@ -42,6 +42,8 @@
 * Install lxml
 * Install python-dev
 
-## Below Demo was created at a very early stage of the project. After many changes, some features are removed while many others are added.
+## Below demo was created at a very early stage of the project. After many changes, some features are removed while many others are added.
 
 ### Demo: http://www.youtube.com/watch?v=CAmQRpxrQlk
+
+## MIT Licence 
