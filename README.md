@@ -1,24 +1,47 @@
-1) Install git
-2) Clone the project
-3) Install julius, julius-voxforge
-4) Command for running julius : julius -input mic -C julius.jconf | python -u getcommand.py
-5) Install festival
-6) Install festlex-cmu
-7) Install the downloaded voice file : 
+#This final year project is focused on providing alternative ways to communicate with the computer on Linux platform
+
+### Built on top of
+* Julius
+* OpenCV
+* Festival
+* Tornado
+
+###Features
+* Controls through Speech Recognition (this is not an exhaustive list, many more features are added)
+ * Media player controls such as play, pause, next song, previous song. Currently Rhythmbox is supported.
+ * Increase or Reduce Brightness, Lock Computer
+ * Browse web
+* Controls through Web Camera
+ * Pauses video when the face is turned away from screen (Supports only Totem)
+ * Seeking video using gesture recognition (Supports only Totem)
+ * Automatically locks computer when the user is not recognized for a particular amount of time
+
+
+### Installation Procedure
+
+## This is outdated. Multiple changes in the directory structure need an updated install procedure. 
+* Clone the project
+* Install julius, julius-voxforge
+* Command for running julius : julius -input mic -C julius.jconf | python -u getcommand.py
+* Install festival
+* Install festlex-cmu
+* Install the downloaded voice file : 
 	cd /usr/share/festival/voices/english/
 	sudo wget -c http://www.speech.cs.cmu.edu/cmu_arctic/packed/cmu_us_clb_arctic-0.95-release.tar.bz2
 	sudo tar jxf cmu_us_clb_arctic-0.95-release.tar.bz2 
 	sudo ln -s cmu_us_slt_arctic cmu_us_slt_arctic_clunits
 	sudo cp /etc/festival.scm /etc/festival.scm.backup
 	sudo echo "(set! voice_default 'voice_cmu_us_slt_arctic_clunits)" >> /etc/festival.scm
-8) Install xbacklight for brightness control from terminal
-9) Install zenity (for dialogs and such)
-10) Notify osd is shit. Installed xfce4-notifyd-config. Removed notify-osd which killed ubuntu-desktop with itself
-11) Installed Tornado for the webserver stuff. The commands are 
+* Install xbacklight for brightness control from terminal
+* Installed Tornado for the webserver stuff. The commands are 
 	after unzipping the package, python setup.py build
 	sudo python setup.py install
-12) Installed OpenCV
-13) Installed python-opencv
-14) Installed python-numpy
-15) Install lxml
-16) Install python-dev
+* Install OpenCV
+* Install python-opencv
+* Install python-numpy
+* Install lxml
+* Install python-dev
+
+## Below Demo was created at a very early stage of the project. After many changes, some features are removed while many others are added.
+
+### Demo: http://www.youtube.com/watch?v=CAmQRpxrQlk
