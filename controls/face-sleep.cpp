@@ -12,8 +12,8 @@
 #include <ctype.h>
 
 
-int flag=0;
-int played=0;
+int flag = 0;
+int played = 0;
 static CvMemStorage* storage = 0;
 static CvHaarClassifierCascade* cascade = 0;
 
@@ -25,12 +25,15 @@ int detect_and_draw( IplImage* image )
 	int i;
 	
 	cvClearMemStorage( storage );
+
 	if( cascade ){
 		CvSeq* faces = cvHaarDetectObjects( img, cascade, storage,
 		                                    1.1, 2, CV_HAAR_DO_CANNY_PRUNING,
 		                                    cvSize(40, 40) );
 	      
-		if(!faces || faces->total==0)return 0;
+		if(!faces || faces->total == 0){
+			return 0;
+		}
 		
 		for( i = 0; i < (faces ? faces->total : 0); i++ ){
 			CvRect* r = (CvRect*)cvGetSeqElem( faces, i );
@@ -53,10 +56,9 @@ int main( int argc, char** argv )
 {
 	CvCapture* capture = 0;
 	IplImage *frame, *frame_copy = 0;
-	cascade = (CvHaarClassifierCascade*)cvLoad( "yolo.xml", 0, 0, 0 );
+	cascade = (CvHaarClassifierCascade*) cvLoad( "yolo.xml", 0, 0, 0 );
 	   
-	if( !cascade )
-	{
+	if( !cascade ){
 		printf("ERROR: Could not load classifier cascade\n");
 		return -1;
 	}
@@ -67,16 +69,17 @@ int main( int argc, char** argv )
 
 	if( capture ){
 
-		int j=0;
+		int j = 0;
+
 		for(;;){
 
-			if(j==500){
+			if(j == 500){
 				system("gnome-screensaver-command -l");
-				j=0;
+				j = 0;
 			}
 
-			int i=0;
-			flag=0;
+			int i = 0;
+			flag = 0;
 
 			if( !cvGrabFrame( capture )){
 				break;
@@ -102,11 +105,11 @@ int main( int argc, char** argv )
 			         
 			flag = detect_and_draw( frame_copy );
 			
-			if(flag==0){
+			if(flag == 0){
 				j++;
 			}
 			else{
-				j=0;
+				j = 0;
 			}
 			
 			if( cvWaitKey( 10 ) >= 0 ){
